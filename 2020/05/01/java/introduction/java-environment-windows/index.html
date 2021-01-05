@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>【Java入门篇】二、Java开发环境搭建——Windows篇 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="你为了你的正义，我为了我的正义。 – 《火影忍者》  一、安装JDK官网下载链接：https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html  二、配置环境变量需要配置以下几个环境变量：    环境变量名 说明    JAVA_HOME 配置JDK安装路径   PATH 配置JDK命令文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Java入门篇】二、Java开发环境搭建——Windows篇">
+<meta property="og:url" content="https://good19961106.github.io/2020/05/01/java/introduction/java-environment-windows/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="你为了你的正义，我为了我的正义。 – 《火影忍者》  一、安装JDK官网下载链接：https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html  二、配置环境变量需要配置以下几个环境变量：    环境变量名 说明    JAVA_HOME 配置JDK安装路径   PATH 配置JDK命令文">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/05/02/CvASgTp3BQFGlks.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/02/KkW2HEcewYmfyLC.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/02/Iybmol7AfZ2JjPV.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/02/iaUDGuIA2dFVLsb.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/02/Fm6WAQtRjKyxPv3.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/02/4rDZIYn6yL5lGEp.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/02/WagrjY8X9AcwPNI.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/02/wBrWpu7P8KIA1c6.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/02/InRJXZb54T1veuc.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/02/AfHOY5RXge9tlVo.png">
+<meta property="article:published_time" content="2020-05-01T13:33:03.000Z">
+<meta property="article:modified_time" content="2020-12-22T12:17:37.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="环境搭建">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Java入门">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/02/CvASgTp3BQFGlks.png">
+  
+    <link rel="alternate" href="/breeze-blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/breeze-blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/breeze-blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/breeze-blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/breeze-blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/breeze-blog/">Home</a>
+        
+          <a class="main-nav-link" href="/breeze-blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/breeze-blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://good19961106.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-java/introduction/java-environment-windows" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/breeze-blog/2020/05/01/java/introduction/java-environment-windows/" class="article-date">
+  <time class="dt-published" datetime="2020-05-01T13:33:03.000Z" itemprop="datePublished">2020-05-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【Java入门篇】二、Java开发环境搭建——Windows篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>你为了你的正义，我为了我的正义。 – 《火影忍者》</p>
+</blockquote>
+<h2 id="一、安装JDK"><a href="#一、安装JDK" class="headerlink" title="一、安装JDK"></a>一、安装JDK</h2><p>官网下载链接：<a target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+<p><img src="https://i.loli.net/2020/05/02/CvASgTp3BQFGlks.png" alt="1-jdk-windows.png"></p>
+<h2 id="二、配置环境变量"><a href="#二、配置环境变量" class="headerlink" title="二、配置环境变量"></a>二、配置环境变量</h2><p>需要配置以下几个环境变量：</p>
+<table>
+<thead>
+<tr>
+<th>环境变量名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JAVA_HOME</td>
+<td>配置JDK安装路径</td>
+</tr>
+<tr>
+<td>PATH</td>
+<td>配置JDK命令文件的位置</td>
+</tr>
+<tr>
+<td>CLASSPATH</td>
+<td>配置类库文件的位置｜</td>
+</tr>
+</tbody></table>
+<h3 id="1、我的电脑（右键）–-gt-属性–-gt-高级系统设置"><a href="#1、我的电脑（右键）–-gt-属性–-gt-高级系统设置" class="headerlink" title="1、我的电脑（右键）–&gt;属性–&gt;高级系统设置"></a>1、我的电脑（右键）–&gt;属性–&gt;高级系统设置</h3><p><img src="https://i.loli.net/2020/05/02/KkW2HEcewYmfyLC.png" alt="2-jdk-windows.png"></p>
+<h3 id="2、环境变量–-gt-新建"><a href="#2、环境变量–-gt-新建" class="headerlink" title="2、环境变量–&gt;新建"></a>2、环境变量–&gt;新建</h3><p><img src="https://i.loli.net/2020/05/02/Iybmol7AfZ2JjPV.png" alt="3-jdk-windows.png"></p>
+<p><img src="https://i.loli.net/2020/05/02/iaUDGuIA2dFVLsb.png" alt="4-jdk-windows.png"></p>
+<p><img src="https://i.loli.net/2020/05/02/Fm6WAQtRjKyxPv3.png" alt="5-jdk-windows.png"></p>
+<p>(1)新建-&gt;变量名”JAVA_HOME”，变量值”C:/Java/jdk1.8.0_144”（即JDK的安装路径），在此，我安装的是 <code>java8</code> 版本，如果选择其它版本，设置对应的路径和名称即可。 </p>
+<p>(2)编辑-&gt;变量名”Path”，在原变量值的最后面加上“;%JAVA_HOME%/bin;%JAVA_HOME%/jre/bin” </p>
+<p>(3)新建-&gt;变量名“CLASSPATH”,变量值“.;%JAVA_HOME%/lib;%JAVA_HOME%/lib/dt.jar;%JAVA_HOME%/lib/tools.jar”</p>
+<h3 id="3、确认环境配置是否正确"><a href="#3、确认环境配置是否正确" class="headerlink" title="3、确认环境配置是否正确"></a>3、确认环境配置是否正确</h3><p>在控制台分别输入 <code>java</code>，<code>javac</code>，<code>java -version</code> 命令，出现如下所示的 <code>JDK</code> 的编译器信息，包括修改命令的语法和参数选项等信息。</p>
+<p><code>java</code> 命令：</p>
+<p><img src="https://i.loli.net/2020/05/02/4rDZIYn6yL5lGEp.png" alt="6-jdk-windows.png"></p>
+<p><code>javac</code> 命令：</p>
+<p><img src="https://i.loli.net/2020/05/02/WagrjY8X9AcwPNI.png" alt="7-jdk-windows.png"></p>
+<p><code>java -version</code> 命令：</p>
+<p><img src="https://i.loli.net/2020/05/02/wBrWpu7P8KIA1c6.png" alt="8-jdk-windows.png"></p>
+<h3 id="4、在控制台下验证第一个java程序："><a href="#4、在控制台下验证第一个java程序：" class="headerlink" title="4、在控制台下验证第一个java程序："></a>4、在控制台下验证第一个java程序：</h3><p>右键–》新建–》文本文档</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用记事本编写好，点击“保存”，并保存在桌面后，先在控制台中进入桌面的目录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:</span><br><span class="line"><span class="built_in">cd</span> /Users/[用户名]/Desktop</span><br></pre></td></tr></table></figure>
+<p>上面的[用户名]改成你的计算机用户名即可，不清楚的话打开我的电脑，进C盘目录：<code>C:/Users</code> 找一下。</p>
+<p>输入 <code>javac Test.java</code> 和 <code>java Test</code> 命令，即可运行程序（打印出结果“Hello Java”）。</p>
+<p><img src="https://i.loli.net/2020/05/02/InRJXZb54T1veuc.png" alt="9-jdk-windows.png"></p>
+<p>至此，<code>Java</code> 开发环境搭建成功。</p>
+<p><img src="https://i.loli.net/2020/05/02/AfHOY5RXge9tlVo.png" alt="微信公众号"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://good19961106.github.io/2020/05/01/java/introduction/java-environment-windows/" data-id="ckjjnjnco001ba8wc6uwid64f" data-title="【Java入门篇】二、Java开发环境搭建——Windows篇" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/breeze-blog/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/breeze-blog/tags/Java%E5%85%A5%E9%97%A8/" rel="tag">Java入门</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/breeze-blog/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="tag">环境搭建</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/breeze-blog/2020/05/01/java/introduction/java-environment-mac/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          【Java入门篇】三、Java开发环境搭建——Mac篇
+        
+      </div>
+    </a>
+  
+  
+    <a href="/breeze-blog/2020/05/01/java/introduction/java-environment/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">【Java入门篇】一、Java开发环境搭建——概念说明</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/">编程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li class="category-list-item"><a class="category-list-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/%E7%94%9F%E6%B4%BB/">生活</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/DelayQueue/" rel="tag">DelayQueue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Java%E5%85%A5%E9%97%A8/" rel="tag">Java入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/github-pages/" rel="tag">github pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/go/" rel="tag">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/travis-ci/" rel="tag">travis ci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/%E4%BC%98%E9%9B%85%E9%87%8D%E8%AF%95/" rel="tag">优雅重试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">最佳实践</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="tag">环境搭建</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/breeze-blog/tags/DelayQueue/" style="font-size: 10px;">DelayQueue</a> <a href="/breeze-blog/tags/Hexo/" style="font-size: 12.86px;">Hexo</a> <a href="/breeze-blog/tags/Java/" style="font-size: 20px;">Java</a> <a href="/breeze-blog/tags/Java%E5%85%A5%E9%97%A8/" style="font-size: 18.57px;">Java入门</a> <a href="/breeze-blog/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 15.71px;">Java基础</a> <a href="/breeze-blog/tags/R/" style="font-size: 11.43px;">R</a> <a href="/breeze-blog/tags/RabbitMQ/" style="font-size: 14.29px;">RabbitMQ</a> <a href="/breeze-blog/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/breeze-blog/tags/Thoughts/" style="font-size: 11.43px;">Thoughts</a> <a href="/breeze-blog/tags/github-pages/" style="font-size: 10px;">github pages</a> <a href="/breeze-blog/tags/go/" style="font-size: 12.86px;">go</a> <a href="/breeze-blog/tags/travis-ci/" style="font-size: 10px;">travis ci</a> <a href="/breeze-blog/tags/%E4%BC%98%E9%9B%85%E9%87%8D%E8%AF%95/" style="font-size: 10px;">优雅重试</a> <a href="/breeze-blog/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 10px;">最佳实践</a> <a href="/breeze-blog/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 17.14px;">环境搭建</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/breeze-blog/2021/01/05/picture/go-draw-word-in-pic2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2021/01/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2020/12/20/picture/go-draw-word-in-pic/">【Go语言绘图】图片添加文字（一）</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2020/12/16/picture/go-pic-rotate-use-gg-package/">【Go语言绘图】图片的旋转</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2020/11/29/picture/go-basic-usage-of-gg-package/">【Go语言绘图】gg 库的基本使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/breeze-blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/breeze-blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/breeze-blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/breeze-blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/breeze-blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

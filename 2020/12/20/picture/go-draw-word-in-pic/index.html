@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>【Go语言绘图】图片添加文字（一） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前一篇讲解了利用gg包来进行图片旋转的操作，这一篇我们来看看怎么在图片上添加文字。 绘制纯色背景首先，我们先绘制一个纯白色的背景，作为添加文字的背景板。 1234567891011package mainimport &quot;github.com&#x2F;fogleman&#x2F;gg&quot;func main() &amp;#123;	const S &#x3D; 1024	dc :&#x3D; gg.NewContext(S,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Go语言绘图】图片添加文字（一）">
+<meta property="og:url" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前一篇讲解了利用gg包来进行图片旋转的操作，这一篇我们来看看怎么在图片上添加文字。 绘制纯色背景首先，我们先绘制一个纯白色的背景，作为添加文字的背景板。 1234567891011package mainimport &quot;github.com&#x2F;fogleman&#x2F;gg&quot;func main() &amp;#123;	const S &#x3D; 1024	dc :&#x3D; gg.NewContext(S,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/1.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/2.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/3.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/4.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/5.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/6.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/7.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/8.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/9.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/10.png">
+<meta property="article:published_time" content="2020-12-20T13:45:35.000Z">
+<meta property="article:modified_time" content="2020-12-22T12:17:37.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="go">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/1.png">
+  
+    <link rel="alternate" href="/breeze-blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/breeze-blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/breeze-blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/breeze-blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/breeze-blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/breeze-blog/">Home</a>
+        
+          <a class="main-nav-link" href="/breeze-blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/breeze-blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://good19961106.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-picture/go-draw-word-in-pic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/breeze-blog/2020/12/20/picture/go-draw-word-in-pic/" class="article-date">
+  <time class="dt-published" datetime="2020-12-20T13:45:35.000Z" itemprop="datePublished">2020-12-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【Go语言绘图】图片添加文字（一）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>前一篇讲解了利用gg包来进行图片旋转的操作，这一篇我们来看看怎么在图片上添加文字。</p>
+<h2 id="绘制纯色背景"><a href="#绘制纯色背景" class="headerlink" title="绘制纯色背景"></a>绘制纯色背景</h2><p>首先，我们先绘制一个纯白色的背景，作为添加文字的背景板。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/fogleman/gg&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">const</span> S = <span class="number">1024</span></span><br><span class="line">	dc := gg.NewContext(S, S)</span><br><span class="line">	dc.SetRGB(<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">	dc.Clear()</span><br><span class="line">	dc.SavePNG(<span class="string">&quot;out.png&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出图片如下：</p>
+<p><img src="1.png"></p>
+<p>这样我就得到了一张纯青色的背景图。回顾一下上一篇里绘制背景图的步骤：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestRotateImage</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	width := <span class="number">1000</span></span><br><span class="line">	height := <span class="number">1000</span></span><br><span class="line"></span><br><span class="line">	dc := gg.NewContext(width, height)</span><br><span class="line">	dc.DrawRectangle(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">float64</span>(width), <span class="keyword">float64</span>(width))</span><br><span class="line">	dc.SetRGB255(<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>)</span><br><span class="line">	dc.Fill()</span><br><span class="line">	dc.SavePNG(<span class="string">&quot;test.png&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们是通过先绘制跟画布同样大小的矩形，然后将它的颜色进行填充来实现纯色背景效果的，但实际上使用 <code>Clear()</code> 方法便能直接使用当前颜色对画布进行填充。</p>
+<p>查看一下 <code>Clear()</code> 方法便能发现，里面是通过调用 <code>draw.Draw()</code> 函数来实现的，这也是go语言自带的 <code>image</code> 包里很有用的一个函数，后面会有文章来做更详细的介绍。简单来说，<code>Clear()</code> 方法是通过调用<code>draw.Draw()</code> 函数，通过将纯色图片覆盖到原画布的方式来实现纯色背景的效果的。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Clear fills the entire image with the current color.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(dc *Context)</span> <span class="title">Clear</span><span class="params">()</span></span> &#123;</span><br><span class="line">	src := image.NewUniform(dc.color)</span><br><span class="line">	draw.Draw(dc.im, dc.im.Bounds(), src, image.ZP, draw.Src)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="添加文字"><a href="#添加文字" class="headerlink" title="添加文字"></a>添加文字</h2><p>背景板已经准备就绪，接下来，我们来添加一些文字。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/fogleman/gg&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">const</span> S = <span class="number">1024</span></span><br><span class="line">	dc := gg.NewContext(S, S)</span><br><span class="line">	dc.SetRGB(<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">	dc.Clear()</span><br><span class="line">	dc.SetRGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">if</span> err := dc.LoadFontFace(<span class="string">&quot;gilmer-heavy.ttf&quot;</span>, <span class="number">120</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	dc.DrawString(<span class="string">&quot;Hello, world!&quot;</span>, <span class="number">0</span>, S/<span class="number">2</span>)</span><br><span class="line">	dc.SavePNG(<span class="string">&quot;out.png&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出如下，一个硕大、黑色的“Hello, World!”就出现在了图片中央。</p>
+<p><img src="2.png"></p>
+<p>这里我们添加了三个步骤，首先是设置了字体颜色为黑色。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dc.SetRGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>然后加载了字体文件，这里需要注意的是，通过 <code>LoadFontFace()</code> 方法加载的字体文件只支持 <code>ttf</code> 后缀的文件，也就是 <code>true type font</code>，</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> err := dc.LoadFontFace(<span class="string">&quot;gilmer-heavy.ttf&quot;</span>, <span class="number">120</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">panic</span>(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>里面的实现也比较简单：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(dc *Context)</span> <span class="title">LoadFontFace</span><span class="params">(path <span class="keyword">string</span>, points <span class="keyword">float64</span>)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	face, err := LoadFontFace(path, points)</span><br><span class="line">	<span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line">		dc.fontFace = face</span><br><span class="line">		dc.fontHeight = points * <span class="number">72</span> / <span class="number">96</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内部调用了 <code>LoadFontFace()</code> 函数，在这个函数内部进行了字体文件读取，并用 <code>freetype</code> 包里的<code>Parse()</code>函数进行字体的加载，最后在调用 <code>NewFace()</code> 函数来创建一个 <code>font.Face</code> 对象，在外面的<code>LoadFontFace()</code>方法里，将这个对象保存在 <code>fontFace</code> 字段中，并且根据传入的<code>point</code>大小设置了一下字体高度。</p>
+<p>至于为什么是乘以<code>72</code>然后除以<code>96</code>，这个查了一下资料，简单的说，字体的大小单位磅(<code>points</code>) 是<code>1/72</code>逻辑英寸，屏幕的分辨率是<code>96DPI</code>（96点每逻辑英寸），那么屏幕每个点就是<code>72/96</code>=<code>0.75</code>磅。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">LoadFontFace</span><span class="params">(path <span class="keyword">string</span>, points <span class="keyword">float64</span>)</span> <span class="params">(font.Face, error)</span></span> &#123;</span><br><span class="line">	fontBytes, err := ioutil.ReadFile(path)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, err</span><br><span class="line">	&#125;</span><br><span class="line">	f, err := truetype.Parse(fontBytes)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, err</span><br><span class="line">	&#125;</span><br><span class="line">	face := truetype.NewFace(f, &amp;truetype.Options&#123;</span><br><span class="line">		Size: points,</span><br><span class="line">		<span class="comment">// Hinting: font.HintingFull,</span></span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="keyword">return</span> face, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="调整字体大小"><a href="#调整字体大小" class="headerlink" title="调整字体大小"></a>调整字体大小</h3><p>如果想调整字体大小，也很简单，只需要调整<code>LoadFontFace()</code> 方法传入的值即可，让我们来调大一点字体看看效果。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> err := dc.LoadFontFace(<span class="string">&quot;gilmer-heavy.ttf&quot;</span>, <span class="number">240</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">panic</span>(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="3.png"></p>
+<p>这样就大很多了。不知道聪明的你注意到了没有，在调用<code>dc.DrawString(&quot;Hello, world!&quot;, 0, S/2)</code>时，我们设置的坐标是 <code>(0, S/2)</code> ，也就是左侧边的正中心点，<strong>这个位置刚好是绘制出来的文字的左下角的坐标</strong>，这是需要注意的一点。</p>
+<h3 id="居中显示"><a href="#居中显示" class="headerlink" title="居中显示"></a>居中显示</h3><p>如果想要文字居中显示怎么办呢？比如我们想要这个 <code>Hello,World!</code> 显示在图片的正中央，要怎么处理呢？一个笨办法当然是通过调整字体位置来实现这个效果，让我们先来试试：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> err := dc.LoadFontFace(<span class="string">&quot;gilmer-heavy.ttf&quot;</span>, <span class="number">120</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">panic</span>(err)</span><br><span class="line">&#125;</span><br><span class="line">dc.DrawString(<span class="string">&quot;Hello, world!&quot;</span>, <span class="number">130</span>, S/<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="4.png"></p>
+<p>通过多次调整，字体大小设置为<code>120</code>时，<code>x</code>的位置设置为<code>130</code>，基本上可以看起来是居中的。但这样的话每次换文字都得反复调整位置，显然不科学。</p>
+<p>别慌，有一个方法可以得到文字的宽度，<code>MeasureString()</code> 可以得到在当前字体下指定字符串的宽度和高度，这个高度其实就是前面通过 <code>points * 72 / 96</code> 计算得到的，然后我们再将左下角的位置设置为<code>((S-sWidth)/2, (S+sHeight)/2)</code>即可实现文字居中的效果，注意y轴坐标是<code>(S+sHeight)/2</code>，因为文字的左上顶点位置y轴坐标应该是<code>(S-sHeight)/2</code>，左下顶点坐标只需要再加上字体高度即可得出。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s := <span class="string">&quot;Hello, world!&quot;</span></span><br><span class="line">sWidth, sHeight := dc.MeasureString(s)</span><br><span class="line">dc.DrawString(s, (S-sWidth)/<span class="number">2</span>, (S+sHeight)/<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="5.png"></p>
+<p>这样看来，居中显示也不过如此嘛。但别高兴的太早，有没有想过，如果文字过长该怎么处理？比如我们来调整一下文字内容，再看下生成的效果。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s := <span class="string">&quot;Hello,world! Hello,ByteDancer!&quot;</span></span><br></pre></td></tr></table></figure>
+<p><img src="6.png"></p>
+<p>文字已经超出边界了，显然不是理想的效果，这个时候有两种处理方法，一种是添加省略号，一种是换行。</p>
+<h3 id="单行长文本处理"><a href="#单行长文本处理" class="headerlink" title="单行长文本处理"></a>单行长文本处理</h3><p>先来说一下添加省略号的处理方案，听起来好像挺简单，但实际上处理起来也挺麻烦的。</p>
+<p>首先需要确定一个文字展示的最大宽度，因为如果满打满算整行都塞满文字显然不好看。其次是要逐个字符进行宽度计算，并判断是否会超过最大宽度，最后截取并保留刚好小于最大宽度时的字符串（需要考虑省略号的宽度）。</p>
+<p>我们来逐个处理。首先拍脑袋定一个文字最大宽度为图片宽度的<code>0.75</code>倍。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">maxTextWidth := S * <span class="number">0.75</span></span><br></pre></td></tr></table></figure>
+<p>然后来逐个字符计算宽度，直到刚好大于最大宽度为止。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TruncateText</span><span class="params">(dc *gg.Context, originalText <span class="keyword">string</span>, maxTextWidth <span class="keyword">float64</span>)</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	tmpStr := <span class="string">&quot;&quot;</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(originalText); i++ &#123;</span><br><span class="line">		tmpStr = tmpStr + <span class="keyword">string</span>(originalText[i])</span><br><span class="line">		w, _ := dc.MeasureString(tmpStr)</span><br><span class="line">		<span class="keyword">if</span> w &gt; maxTextWidth &#123;</span><br><span class="line">			<span class="keyword">return</span> tmpStr[<span class="number">0</span> : i<span class="number">-1</span>]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> tmpStr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后我们调整一下调用的地方。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">const</span> S = <span class="number">1024</span></span><br><span class="line">	dc := gg.NewContext(S, S)</span><br><span class="line">	dc.SetRGB(<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">	dc.Clear()</span><br><span class="line">	dc.SetRGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">if</span> err := dc.LoadFontFace(<span class="string">&quot;gilmer-heavy.ttf&quot;</span>, <span class="number">120</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	s := <span class="string">&quot;Hello,world! Hello,ByteDancer!&quot;</span></span><br><span class="line">	ellipsisWidth, _ := dc.MeasureString(<span class="string">&quot;...&quot;</span>)</span><br><span class="line">	maxTextWidth := S * <span class="number">0.75</span></span><br><span class="line">	s = TruncateText(dc, s, maxTextWidth - ellipsisWidth) + <span class="string">&quot;...&quot;</span></span><br><span class="line">	fmt.Println(s)</span><br><span class="line">	sWidth, sHeight := dc.MeasureString(s)</span><br><span class="line"></span><br><span class="line">	dc.DrawString(s, (S-sWidth)/<span class="number">2</span>, (S+sHeight)/<span class="number">2</span>)</span><br><span class="line">	dc.SavePNG(<span class="string">&quot;out.png&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里我们先计算了省略号的宽度，然后用最大字符串宽度减去省略号宽度作为最大宽度传入，得到最终要展示的字符串。生成的效果如下：</p>
+<p><img src="7.png"></p>
+<p>看起来好像没什么毛病，但如果我们把文字换成中文，情况可能就不一样了。我们换一个中文字体，然后把字符串设置成中文。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> err := dc.LoadFontFace(<span class="string">&quot;方正楷体简体.ttf&quot;</span>, <span class="number">120</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">panic</span>(err)</span><br><span class="line">&#125;</span><br><span class="line">s := <span class="string">&quot;如果我们把文字换成中文&quot;</span></span><br></pre></td></tr></table></figure>
+<p>就变成了这个样子。</p>
+<p><img src="8.png"></p>
+<p>发现图片上只剩下了省略号，原因是中文字符串分割不正确导致出现了乱码，而这个乱码在字体里找不到对应的文字，所以无法展示。这时，需要先将字符串先转化为<code>rune</code>数组，或者通过直接对字符串使用 <code>for range</code> 遍历，可以避免在中文的情况出现乱码的情况。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TruncateText</span><span class="params">(dc *gg.Context, originalText <span class="keyword">string</span>, maxTextWidth <span class="keyword">float64</span>)</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	tmpStr := <span class="string">&quot;&quot;</span></span><br><span class="line">	result := <span class="built_in">make</span>([]<span class="keyword">rune</span>, <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">for</span> _, r := <span class="keyword">range</span> originalText &#123;</span><br><span class="line">		tmpStr = tmpStr + <span class="keyword">string</span>(r)</span><br><span class="line">		w, _ := dc.MeasureString(tmpStr)</span><br><span class="line">		<span class="keyword">if</span> w &gt; maxTextWidth &#123;</span><br><span class="line">			<span class="keyword">if</span> <span class="built_in">len</span>(tmpStr) &lt;= <span class="number">1</span> &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="string">&quot;&quot;</span></span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			result = <span class="built_in">append</span>(result, r)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">string</span>(result)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样文字就能按照我们的预期进行展示了。</p>
+<p><img src="9.png"></p>
+<h3 id="多行文本处理"><a href="#多行文本处理" class="headerlink" title="多行文本处理"></a>多行文本处理</h3><p>接下来，我们来看看怎么处理多行文本，即当一行文字展示不下时，把文字切割成多行进行展示。如果我们仍旧使用之前的方法来处理的话，就需要先计算好每行展示的字以及行数，然后再进行展示。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;github.com/fogleman/gg&quot;</span></span><br><span class="line">	<span class="string">&quot;strings&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">const</span> S = <span class="number">1024</span></span><br><span class="line">	dc := gg.NewContext(S, S)</span><br><span class="line">	dc.SetRGB(<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">	dc.Clear()</span><br><span class="line">	dc.SetRGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">if</span> err := dc.LoadFontFace(<span class="string">&quot;/Users/bytedance/Downloads/方正楷体简体.ttf&quot;</span>, <span class="number">120</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	s := <span class="string">&quot;这是我的一个秘密，再简单不过的秘密：一个人只有用心去看，才能看到真实。事情的真相只用眼睛是看不见的。        --《小王子》&quot;</span></span><br><span class="line">	ellipsisWidth, _ := dc.MeasureString(<span class="string">&quot;...&quot;</span>)</span><br><span class="line"></span><br><span class="line">	maxTextWidth := S * <span class="number">0.9</span></span><br><span class="line">	lineSpace := <span class="number">25.0</span></span><br><span class="line">	maxLine := <span class="keyword">int</span>(S / (dc.FontHeight() + lineSpace))</span><br><span class="line"></span><br><span class="line">	line := <span class="number">0</span></span><br><span class="line">	lineTexts := <span class="built_in">make</span>([]<span class="keyword">string</span>, <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">for</span> <span class="built_in">len</span>(s) &gt; <span class="number">0</span> &#123;</span><br><span class="line">		line++</span><br><span class="line">		<span class="keyword">if</span> line &gt; maxLine &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> line == maxLine &#123;</span><br><span class="line">			sw, _ := dc.MeasureString(s)</span><br><span class="line">			<span class="keyword">if</span> sw &gt; maxTextWidth &#123;</span><br><span class="line">				maxTextWidth -= ellipsisWidth</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		lineText := TruncateText(dc, s, maxTextWidth)</span><br><span class="line">		<span class="keyword">if</span> line == maxLine &amp;&amp; <span class="built_in">len</span>(lineText) &lt; <span class="built_in">len</span>(s) &#123;</span><br><span class="line">			lineText += <span class="string">&quot;...&quot;</span></span><br><span class="line">		&#125;</span><br><span class="line">		lineTexts = <span class="built_in">append</span>(lineTexts, lineText)</span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">len</span>(lineText) &gt;= <span class="built_in">len</span>(s) &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">		s = s[<span class="built_in">len</span>(lineText):]</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	lineY := (S - dc.FontHeight()*<span class="keyword">float64</span>(<span class="built_in">len</span>(lineTexts)) - lineSpace*<span class="keyword">float64</span>(<span class="built_in">len</span>(lineTexts)<span class="number">-1</span>)) / <span class="number">2</span></span><br><span class="line">	lineY += dc.FontHeight()</span><br><span class="line">	<span class="keyword">for</span> _, text := <span class="keyword">range</span> lineTexts &#123;</span><br><span class="line">		sWidth, _ := dc.MeasureString(text)</span><br><span class="line">		lineX := (S - sWidth) / <span class="number">2</span></span><br><span class="line">		dc.DrawString(text, lineX, lineY)</span><br><span class="line">		lineY += dc.FontHeight() + lineSpace</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	dc.SavePNG(<span class="string">&quot;out.png&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TruncateText</span><span class="params">(dc *gg.Context, originalText <span class="keyword">string</span>, maxTextWidth <span class="keyword">float64</span>)</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	tmpStr := <span class="string">&quot;&quot;</span></span><br><span class="line">	result := <span class="built_in">make</span>([]<span class="keyword">rune</span>, <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">for</span> _, r := <span class="keyword">range</span> originalText &#123;</span><br><span class="line">		tmpStr = tmpStr + <span class="keyword">string</span>(r)</span><br><span class="line">		w, _ := dc.MeasureString(tmpStr)</span><br><span class="line">		<span class="keyword">if</span> w &gt; maxTextWidth &#123;</span><br><span class="line">			<span class="keyword">if</span> <span class="built_in">len</span>(tmpStr) &lt;= <span class="number">1</span> &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="string">&quot;&quot;</span></span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			result = <span class="built_in">append</span>(result, r)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">string</span>(result)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段逻辑其实也很简单，首先根据行高和行间距计算出当前图片最多能展示多少行字，然后遍历需要展示的字符串进行逐行截取，截取出一行行的文字来。</p>
+<p>遍历时有一个小细节，那就是判断是否已经到达最后一行，如果到达最后一行，则要考虑是否添加省略号了。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如果已经是最后一行，则需要判断剩余字符串是否仍旧超过最大宽度</span></span><br><span class="line"><span class="keyword">if</span> line == maxLine &#123;</span><br><span class="line">    sw, _ := dc.MeasureString(s)</span><br><span class="line">    <span class="comment">// 如果超过则需要在末尾添加省略号，截取的最大宽度需要减去省略号的宽度</span></span><br><span class="line">    <span class="keyword">if</span> sw &gt; maxTextWidth &#123;</span><br><span class="line">        maxTextWidth -= ellipsisWidth</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">lineText := TruncateText(dc, s, maxTextWidth)</span><br><span class="line"><span class="comment">// 如果是最后一行并且文字仍旧是被截取过，那么在末尾添加省略号</span></span><br><span class="line"><span class="keyword">if</span> line == maxLine &amp;&amp; <span class="built_in">len</span>(lineText) &lt; <span class="built_in">len</span>(s) &#123;</span><br><span class="line">    lineText += <span class="string">&quot;...&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在绘制文本时，先考虑整个文本框的左上顶点位置，因为需要居中展示，每一行的宽度是变化的，X轴坐标是不确定的，但是Y轴坐标是可以先计算出来的，因为每一行的高度和行间距我们都已经知道了。整个文本框的高度就是<code>dc.FontHeight()*float64(len(lineTexts)) - lineSpace*float64(len(lineTexts)-1))</code> ，用图片高度减去文本框高度再除以2，就能得到左上顶点高度了。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lineY := (S - dc.FontHeight()*<span class="keyword">float64</span>(<span class="built_in">len</span>(lineTexts)) - lineSpace*<span class="keyword">float64</span>(<span class="built_in">len</span>(lineTexts)<span class="number">-1</span>)) / <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>然后开始逐行绘制文字，计算每一行的左下顶点X轴和Y轴坐标即可。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lineY += dc.FontHeight()</span><br><span class="line"><span class="keyword">for</span> _, text := <span class="keyword">range</span> lineTexts &#123;</span><br><span class="line">    sWidth, _ := dc.MeasureString(text)</span><br><span class="line">    lineX := (S - sWidth) / <span class="number">2</span></span><br><span class="line">    dc.DrawString(text, lineX, lineY)</span><br><span class="line">    lineY += dc.FontHeight() + lineSpace</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后的效果如下图：</p>
+<p><img src="10.png"></p>
+<p>这样虽然实现了效果，但是显然有些太过复杂，我们还能再简化一下这个过程。</p>
+<p>在gg库中，还有两个方法可以绘制文字，<code>DrawStringAnchored()</code> 和 <code>DrawStringWrapped()</code>。前者可以在指定一个点为偏移起点。后者则类似于一个文本框的效果，可以指定文本框中心点和文本框宽度，这些将在下一篇中进行介绍。</p>
+<p>这里的处理没有考虑原文本中有换行符的情况，所以其实还不够完善，在处理时可以先对文本进行换行符分割，然后再依次进行上述处理。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这一篇中，主要讲解了如何在纯色背景图上进行文字的绘制，说明了 <code>DrawString()</code> 方法和 <code>MeasureString()</code> 的使用，并利用它们来实现了文字居中的效果。在下一篇中，将对通过另外几个方法的讲解来了解文字绘制的更多技巧。</p>
+<p>如果本篇内容对你有帮助，别忘了点赞关注加收藏～</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://good19961106.github.io/2020/12/20/picture/go-draw-word-in-pic/" data-id="ckjjnjnc9000ha8wc5eve99js" data-title="【Go语言绘图】图片添加文字（一）" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/breeze-blog/tags/go/" rel="tag">go</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/breeze-blog/2021/01/05/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/breeze-blog/2020/12/16/picture/go-pic-rotate-use-gg-package/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">【Go语言绘图】图片的旋转</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/">编程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li class="category-list-item"><a class="category-list-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/%E7%94%9F%E6%B4%BB/">生活</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/DelayQueue/" rel="tag">DelayQueue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Java%E5%85%A5%E9%97%A8/" rel="tag">Java入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/github-pages/" rel="tag">github pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/go/" rel="tag">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/travis-ci/" rel="tag">travis ci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/%E4%BC%98%E9%9B%85%E9%87%8D%E8%AF%95/" rel="tag">优雅重试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">最佳实践</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="tag">环境搭建</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/breeze-blog/tags/DelayQueue/" style="font-size: 10px;">DelayQueue</a> <a href="/breeze-blog/tags/Hexo/" style="font-size: 12.86px;">Hexo</a> <a href="/breeze-blog/tags/Java/" style="font-size: 20px;">Java</a> <a href="/breeze-blog/tags/Java%E5%85%A5%E9%97%A8/" style="font-size: 18.57px;">Java入门</a> <a href="/breeze-blog/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 15.71px;">Java基础</a> <a href="/breeze-blog/tags/R/" style="font-size: 11.43px;">R</a> <a href="/breeze-blog/tags/RabbitMQ/" style="font-size: 14.29px;">RabbitMQ</a> <a href="/breeze-blog/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/breeze-blog/tags/Thoughts/" style="font-size: 11.43px;">Thoughts</a> <a href="/breeze-blog/tags/github-pages/" style="font-size: 10px;">github pages</a> <a href="/breeze-blog/tags/go/" style="font-size: 12.86px;">go</a> <a href="/breeze-blog/tags/travis-ci/" style="font-size: 10px;">travis ci</a> <a href="/breeze-blog/tags/%E4%BC%98%E9%9B%85%E9%87%8D%E8%AF%95/" style="font-size: 10px;">优雅重试</a> <a href="/breeze-blog/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 10px;">最佳实践</a> <a href="/breeze-blog/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 17.14px;">环境搭建</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/breeze-blog/2021/01/05/picture/go-draw-word-in-pic2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2021/01/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2020/12/20/picture/go-draw-word-in-pic/">【Go语言绘图】图片添加文字（一）</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2020/12/16/picture/go-pic-rotate-use-gg-package/">【Go语言绘图】图片的旋转</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2020/11/29/picture/go-basic-usage-of-gg-package/">【Go语言绘图】gg 库的基本使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/breeze-blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/breeze-blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/breeze-blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/breeze-blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/breeze-blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

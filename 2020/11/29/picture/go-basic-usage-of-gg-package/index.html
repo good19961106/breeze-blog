@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>【Go语言绘图】gg 库的基本使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="最近接了个比较大的需求，需要做很多图片处理的事情，比如图片的旋转裁截拼接，各种渐变处理，文字排列，一开始光是想想就头疼。但没有办法，既然已经需求已经到手上了，那就得把它做好才行，于是便开始被迫营业，无证上岗了。 经过一番查找，找到了一个Go语言图片处理的库，经过调研发现还挺强的，能满足需求，于是决定写点文章，记录一下使用心得，以便日后不时之需。 gg 库的安装和简单使用使用之前，我们当然得先来安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Go语言绘图】gg 库的基本使用">
+<meta property="og:url" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近接了个比较大的需求，需要做很多图片处理的事情，比如图片的旋转裁截拼接，各种渐变处理，文字排列，一开始光是想想就头疼。但没有办法，既然已经需求已经到手上了，那就得把它做好才行，于是便开始被迫营业，无证上岗了。 经过一番查找，找到了一个Go语言图片处理的库，经过调研发现还挺强的，能满足需求，于是决定写点文章，记录一下使用心得，以便日后不时之需。 gg 库的安装和简单使用使用之前，我们当然得先来安装">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/1.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/2.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/3.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/4.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/5.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/6.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/7.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/8.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/9.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/10.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/11.png">
+<meta property="og:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/12.png">
+<meta property="article:published_time" content="2020-11-29T13:45:35.000Z">
+<meta property="article:modified_time" content="2020-12-22T12:17:37.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="go">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/1.png">
+  
+    <link rel="alternate" href="/breeze-blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/breeze-blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/breeze-blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/breeze-blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/breeze-blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/breeze-blog/">Home</a>
+        
+          <a class="main-nav-link" href="/breeze-blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/breeze-blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://good19961106.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-picture/go-basic-usage-of-gg-package" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/breeze-blog/2020/11/29/picture/go-basic-usage-of-gg-package/" class="article-date">
+  <time class="dt-published" datetime="2020-11-29T13:45:35.000Z" itemprop="datePublished">2020-11-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【Go语言绘图】gg 库的基本使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>最近接了个比较大的需求，需要做很多图片处理的事情，比如图片的旋转裁截拼接，各种渐变处理，文字排列，一开始光是想想就头疼。但没有办法，既然已经需求已经到手上了，那就得把它做好才行，于是便开始被迫营业，无证上岗了。</p>
+<p>经过一番查找，找到了一个Go语言图片处理的库，经过调研发现还挺强的，能满足需求，于是决定写点文章，记录一下使用心得，以便日后不时之需。</p>
+<h2 id="gg-库的安装和简单使用"><a href="#gg-库的安装和简单使用" class="headerlink" title="gg 库的安装和简单使用"></a>gg 库的安装和简单使用</h2><p>使用之前，我们当然得先来安装一下这个库：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> get -u github.com/fogleman/gg</span><br></pre></td></tr></table></figure>
+<p>这个库的一个好处是有很多测试代码，可以拿来跑跑看，就知道它大概能实现什么样的效果了。</p>
+<p><img src="1.png"></p>
+<p>这是它例子的大概效果图，可以看到，能实现的图形效果还是挺多的。</p>
+<p><img src="2.png"></p>
+<p>我们拿其中的一个代码来简单体验一下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/fogleman/gg&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    dc := gg.NewContext(<span class="number">1000</span>, <span class="number">1000</span>)</span><br><span class="line">    dc.DrawCircle(<span class="number">500</span>, <span class="number">500</span>, <span class="number">400</span>)</span><br><span class="line">    dc.SetRGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    dc.Fill()</span><br><span class="line">    dc.SavePNG(<span class="string">&quot;out.png&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>duang 的一下，一张黑不溜秋的圆形图就生成了。</p>
+<p><img src="3.png"></p>
+<p>关于上面的代码，下面会进行逐一说明。</p>
+<h2 id="调整生成图片的大小"><a href="#调整生成图片的大小" class="headerlink" title="调整生成图片的大小"></a>调整生成图片的大小</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dc := gg.NewContext(<span class="number">1000</span>, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<p>这是先初始化一个 <code>Context</code> 对象，使用库之前都需要先初始化一个 <code>Context</code> 对象，后面的两个 <code>1000</code>，分别对应着最终生成图片的宽度和高度。我们可以修改一下高度为 <code>500</code> 看看效果。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dc := gg.NewContext(<span class="number">1000</span>, <span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="4.png"></p>
+<p>可以看到图片被腰斩了，高度矮了一半，同样修改宽度参数也可以得到类似的效果，这里就不演示了。</p>
+<h2 id="调整圆形参数"><a href="#调整圆形参数" class="headerlink" title="调整圆形参数"></a>调整圆形参数</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dc.DrawCircle(<span class="number">500</span>, <span class="number">500</span>, <span class="number">400</span>)</span><br></pre></td></tr></table></figure>
+<p>这里是画一个圆心位置在 <code>(500,500)</code>，半径为 <code>400</code> 的圆形。需要说明的一点是，这里的坐标轴是以左上角为原点的，水平向右是横轴正方向，竖直向下是纵轴正方向，所以<code>(500,500)</code>正是中心位置。我们可以调整一下参数值来看下效果。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dc := gg.NewContext(<span class="number">1000</span>, <span class="number">1000</span>)</span><br><span class="line">dc.DrawCircle(<span class="number">300</span>, <span class="number">300</span>, <span class="number">400</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="5.png"></p>
+<p>可以看到，圆心往左上角移动了。还可以调整一下半径参数试试：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dc := gg.NewContext(<span class="number">1000</span>, <span class="number">1000</span>)</span><br><span class="line">dc.DrawCircle(<span class="number">300</span>, <span class="number">300</span>, <span class="number">300</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="6.png"></p>
+<p>这样我们又得到了一个完整的圆。</p>
+<h2 id="调整颜色"><a href="#调整颜色" class="headerlink" title="调整颜色"></a>调整颜色</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dc.SetRGB(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">dc.Fill()</span><br></pre></td></tr></table></figure>
+<p>这两句的意思是先设置颜色值为 <code>(0,0,0)</code>，也就是黑色，乍眼一看这三个值分别对应的是颜色的 <code>R、G、B</code>值，但实际上完全不是这么回事，这里需要注意的是，这三个值分别代表红色、绿色、蓝色的程度，所以如果分别设置为，会得到下面的三张图。</p>
+<p><img src="7.png"><br><img src="8.png"><br><img src="9.png"></p>
+<p>那如果想要根据RGB值来设置颜色该怎么处理呢？其实也很简单，做一个压缩映射即可，<code>RGB</code>值的范围是0～255，表示的含义也是对应色值的程度，这里不过将范围变成了0～1，那我们将需要使用到的值除以255就可以得到对应的映射值了。具体的颜色RGB值跟颜色的对应关系可以在网上搜到。</p>
+<p><a target="_blank" rel="noopener" href="https://tool.oschina.net/commons?type=3">https://tool.oschina.net/commons?type=3</a></p>
+<p>下面我们用淡黄色做一个例子，对应的 <code>RGB</code> 值是 <code>(255,222,173)</code> ，我们添加一下映射转换的代码即可：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rbgConverter = <span class="function"><span class="keyword">func</span><span class="params">(r []<span class="keyword">float64</span>)</span> []<span class="title">float64</span></span> &#123;</span><br><span class="line">	result := <span class="built_in">make</span>([]<span class="keyword">float64</span>, <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(r); i++ &#123;</span><br><span class="line">		result = <span class="built_in">append</span>(result, r[i] / <span class="number">255</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	dc := gg.NewContext(<span class="number">1000</span>, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">	dc.DrawCircle(<span class="number">500</span>, <span class="number">500</span>, <span class="number">400</span>)</span><br><span class="line"></span><br><span class="line">	rgb := []<span class="keyword">float64</span>&#123;<span class="number">255</span>,<span class="number">222</span>,<span class="number">173</span>&#125;</span><br><span class="line">	newRgb := rbgConverter(rgb)</span><br><span class="line"></span><br><span class="line">	dc.SetRGB(newRgb[<span class="number">0</span>], newRgb[<span class="number">1</span>], newRgb[<span class="number">2</span>])</span><br><span class="line">	dc.Fill()</span><br><span class="line">	dc.SavePNG(<span class="string">&quot;out.png&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样我们就得到了一张黄图。</p>
+<p><img src="10.png"></p>
+<h2 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dc.SavePNG(<span class="string">&quot;out.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><code>SavePNG()</code> 方法可以将当前图形保存成 <code>PNG</code> 格式文件，路径可以是相对路径，也可以是绝对路径。</p>
+<p><code>SaveJPG()</code> 方法可以将当前图形保存成 <code>JPG</code> 格式文件。</p>
+<p>当然，这里的两个方法其实也只是包装了一下，点进代码可以看到，里面并没有什么奇奇怪怪的逻辑。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SavePNG encodes the image as a PNG and writes it to disk.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(dc *Context)</span> <span class="title">SavePNG</span><span class="params">(path <span class="keyword">string</span>)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> SavePNG(path, dc.im)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SavePNG</span><span class="params">(path <span class="keyword">string</span>, im image.Image)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	file, err := os.Create(path)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> err</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> file.Close()</span><br><span class="line">	<span class="keyword">return</span> png.Encode(file, im)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以，我们也可以根据自己的需要将图片保存成其它格式或者存到其它地方。</p>
+<h2 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h2><p>加载图片有三个方法可以实现，<code>LoadPNG()</code> 用来加载 <code>PNG</code> 格式的图片，<code>LoadJPG()</code> 用来加载 <code>JPG</code> 格式的图片，如果不清楚该用什么方法，可以直接使用 <code>LoadImage()</code> 方法来加载图片。</p>
+<p>加载图片后，得到的是一个 <code>image.Image</code> 对象，可以通过该对象来获取图片的一些基本信息，如：图片的长和宽、图片某一点的颜色RGB值。</p>
+<p>加载图片之后，可以使用 <code>DrawImage()</code> 方法来将图片绘制出来，以便用于后续操作。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">im, err := gg.LoadImage(<span class="string">&quot;/Users/bytedance/Desktop/test.jpg&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">panic</span>(err)</span><br><span class="line">&#125;</span><br><span class="line">w := im.Bounds().Size().X</span><br><span class="line">h := im.Bounds().Size().Y</span><br><span class="line"></span><br><span class="line">dc := gg.NewContext(h, w)</span><br><span class="line">dc.DrawImage(im, <span class="number">0</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="裁剪"><a href="#裁剪" class="headerlink" title="裁剪"></a>裁剪</h2><p>有一个经常使用到的方法叫 <code>Clip()</code> ，该方法可以将图像进行裁剪，裁剪的形状取决于之前画的图形。</p>
+<p>下面来举个例子，这是我们要裁剪的图，我们用一个圆形来对它进行裁剪。</p>
+<p><img src="11.png"></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// 加载图片，这里路径换成自己的</span></span><br><span class="line">	im, err := gg.LoadImage(<span class="string">&quot;test.jpg&quot;</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取图片的宽度和高度</span></span><br><span class="line">	w := im.Bounds().Size().X</span><br><span class="line">	h := im.Bounds().Size().Y</span><br><span class="line"></span><br><span class="line">	dc := gg.NewContext(h, w)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 取宽度和高度的最小值作为直径</span></span><br><span class="line">	radius := math.Min(<span class="keyword">float64</span>(w), <span class="keyword">float64</span>(h)) / <span class="number">2</span></span><br><span class="line">    <span class="comment">// 画圆形</span></span><br><span class="line">	dc.DrawCircle(<span class="keyword">float64</span>(w/<span class="number">2</span>), <span class="keyword">float64</span>(h/<span class="number">2</span>), radius)</span><br><span class="line">    <span class="comment">// 对画布进行裁剪</span></span><br><span class="line">	dc.Clip()</span><br><span class="line">    <span class="comment">// 加载图片</span></span><br><span class="line">	dc.DrawImage(im, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">	dc.SavePNG(<span class="string">&quot;out.png&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="12.png"></p>
+<p>这样一来，头像就做好了【手动狗头】。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Go 语言也可以实现对图片进行很多类型的操作，今天主要介绍了图片的加载、保存、绘制圆形、调整大小和颜色以及裁剪。之后还会进一步介绍其它功能。</p>
+<p>我觉得如果不是需要使用并没有熟悉它的必要，但知道有这么个东西，知道它能实现什么样的效果，可以让你手上的牌又多了一张，以后有需要的时候便不至于捉襟见肘了。所以还在等什么，赶紧点赞收藏加关注吧～</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://good19961106.github.io/2020/11/29/picture/go-basic-usage-of-gg-package/" data-id="ckjjnjnc5000da8wcgeqn5l52" data-title="【Go语言绘图】gg 库的基本使用" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/breeze-blog/tags/go/" rel="tag">go</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/breeze-blog/2020/12/16/picture/go-pic-rotate-use-gg-package/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          【Go语言绘图】图片的旋转
+        
+      </div>
+    </a>
+  
+  
+    <a href="/breeze-blog/2020/11/28/data-analysis/r-study-basic-type/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">【R语言入门】R语言中的变量与基本数据类型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/">编程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li><li class="category-list-item"><a class="category-list-link" href="/breeze-blog/categories/%E7%BC%96%E7%A8%8B/%E7%94%9F%E6%B4%BB/">生活</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/DelayQueue/" rel="tag">DelayQueue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Java%E5%85%A5%E9%97%A8/" rel="tag">Java入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/github-pages/" rel="tag">github pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/go/" rel="tag">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/travis-ci/" rel="tag">travis ci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/%E4%BC%98%E9%9B%85%E9%87%8D%E8%AF%95/" rel="tag">优雅重试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">最佳实践</a></li><li class="tag-list-item"><a class="tag-list-link" href="/breeze-blog/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="tag">环境搭建</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/breeze-blog/tags/DelayQueue/" style="font-size: 10px;">DelayQueue</a> <a href="/breeze-blog/tags/Hexo/" style="font-size: 12.86px;">Hexo</a> <a href="/breeze-blog/tags/Java/" style="font-size: 20px;">Java</a> <a href="/breeze-blog/tags/Java%E5%85%A5%E9%97%A8/" style="font-size: 18.57px;">Java入门</a> <a href="/breeze-blog/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 15.71px;">Java基础</a> <a href="/breeze-blog/tags/R/" style="font-size: 11.43px;">R</a> <a href="/breeze-blog/tags/RabbitMQ/" style="font-size: 14.29px;">RabbitMQ</a> <a href="/breeze-blog/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/breeze-blog/tags/Thoughts/" style="font-size: 11.43px;">Thoughts</a> <a href="/breeze-blog/tags/github-pages/" style="font-size: 10px;">github pages</a> <a href="/breeze-blog/tags/go/" style="font-size: 12.86px;">go</a> <a href="/breeze-blog/tags/travis-ci/" style="font-size: 10px;">travis ci</a> <a href="/breeze-blog/tags/%E4%BC%98%E9%9B%85%E9%87%8D%E8%AF%95/" style="font-size: 10px;">优雅重试</a> <a href="/breeze-blog/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 10px;">最佳实践</a> <a href="/breeze-blog/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 17.14px;">环境搭建</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/breeze-blog/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/breeze-blog/2021/01/05/picture/go-draw-word-in-pic2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2021/01/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2020/12/20/picture/go-draw-word-in-pic/">【Go语言绘图】图片添加文字（一）</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2020/12/16/picture/go-pic-rotate-use-gg-package/">【Go语言绘图】图片的旋转</a>
+          </li>
+        
+          <li>
+            <a href="/breeze-blog/2020/11/29/picture/go-basic-usage-of-gg-package/">【Go语言绘图】gg 库的基本使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/breeze-blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/breeze-blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/breeze-blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/breeze-blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/breeze-blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
