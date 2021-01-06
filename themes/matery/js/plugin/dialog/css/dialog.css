@@ -1,0 +1,102 @@
+.div_lock {
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 99;
+	display: none;
+}
+
+.div_lock_page{
+	width: 382px;
+	margin: 0 auto;
+	position: fixed;
+	z-index: 100;
+	display: none;
+}
+
+.tb-lock {
+	width: 100%;
+}
+
+.tb-lock a:hover {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.td-lock-title {
+	padding: 10px 30px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.td-lock-main {
+	height: 80px;
+	padding: 20px 30px;
+	text-align: left;
+	background-color: #fff;
+	color: #494949;
+}
+
+.td-lock-bottom {
+	padding: 10px;
+	text-align: center;
+	background-color: #fff;
+	border-top: 1px solid #959595;
+}
+
+.modal-dialog {
+	z-index: 99999;
+}
+
+/* 信息框 */
+.color-info-title {
+	background-color: #d9edf7;
+	border: 1px solid #bce8f1;
+	color: #3183b9;
+}
+
+.color-info-main {
+	border: 1px solid #bce8f1;
+}
+
+.color-info-bottom {
+	border: 1px solid #bce8f1;
+}
+/* 警告框 */
+.color-warn-title {
+	background-color: #fcf8e3;
+	border: 1px solid #faebcc;
+	color: #b8823b;
+}
+
+.color-warn-main {
+	border: 1px solid #faebcc;
+}
+
+.color-warn-bottom {
+	border: 1px solid #faebcc;
+}
+/* 错误框 */
+.color-error-title {
+	background-color: #f2dede;
+	border: 1px solid #ebccd1;
+	color: #c26542;
+}
+
+.color-error-main {
+	border: 1px solid #ebccd1;
+}
+
+.color-error-bottom {
+	border: 1px solid #ebccd1;
+}
+
+@media screen and (max-width: 600px){
+	.div_lock_page{
+		width: 90%;
+	}
+}
+}
