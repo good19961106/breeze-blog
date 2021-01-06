@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<basicInfo>
+  <ennkaku-all>
+    <ennkaku>
+      <date>2016年09月</date>
+      <event>日希株式会社を設立</event>
+    </ennkaku>
+    <ennkaku>
+      <date>2018年04月</date>
+      <event>東京都千代田区神田紺屋町11番地鈴野ビル2階へ事務所移転</event>
+    </ennkaku>
+  </ennkaku-all>
+
+  <jrsyokai>
+	<sien>
+		<title>金融系システム開発</title>
+		<content>大手都市銀行、大手クレジット会社等、金融系基幹システム新規開発・更改に参画。基本設計から保守まで幅広いフェーズを担当致しております。</content>
+		<imgUrl>images/finance.jpg</imgUrl>
+	</sien>
+	<sien>
+		<title>産業系システム開発</title>
+		<content>物流・販売等の開発を行っております。統括部署から現場まで使用者の目線にたった開発を致しております。</content>
+		<imgUrl>images/industry.jpg</imgUrl>
+	</sien>
+
+	<jisya>
+		<title>WEBシステム開発</title>
+		<content>WEBシステムの開発を行っております。</content>
+		<imgUrl>images/web.jpg</imgUrl>
+	</jisya>
+	<jisya>
+		<title>アプリ開発</title>
+		<content>iPhone(iOS)、Android向けのアプリ開発を行っております。</content>
+		<imgUrl>images/app.jpg</imgUrl>
+	</jisya>
+	<lion>
+		<title>労働者派遣、有料職業紹介</title>
+		<content>労働者派遣及び有料職業紹介を行っております。</content>
+		<imgUrl>images/work.jpg</imgUrl>
+	</lion>
+	<lion>
+		<title>不動産賃貸管理</title>
+		<content>不動産の賃貸管理を行っております。</content>
+		<imgUrl>images/real.jpg</imgUrl>
+	</lion>
+  </jrsyokai>
+
+  <gallery-all>
+    <gallery>
+      <date>2017年08月01日</date>
+      <type>0</type>
+      <event>当サイトをリニューアル。</event>
+    </gallery>
+    <gallery>
+      <date>2017年10月01日</date>
+      <type>0</type>
+      <event>事業拡大の為、社宅（女性）を開設。</event>
+    </gallery>
+    <gallery>
+      <date>2018年04月01日</date>
+      <type>0</type>
+      <event>事業拡大の為、事務所を東京へ移転。</event>
+    </gallery>
+  </gallery-all>
+</basicInfo>
+
